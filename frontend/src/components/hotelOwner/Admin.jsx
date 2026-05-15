@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, TextField, Typography } from '@mui/material';
 import axios from 'axios';
 import { useNavigate, Routes, Route } from 'react-router-dom';
+import API_BASE_URL from '../../config/api';
 
 import Sidebar from './Sidebar';
 import HotelReg from './HotelReg'; // Keep component name
@@ -29,7 +30,7 @@ const Admin = () => {
 
   const handleLogin = () => {
     axios
-      .post('http://localhost:3000/admin/login', credentials) // Keep API endpoint
+      .post(`${API_BASE_URL}/admin/login`, credentials) // Keep API endpoint
       .then((res) => {
         localStorage.setItem('user', JSON.stringify(res.data));
         localStorage.setItem('role', 'admin');

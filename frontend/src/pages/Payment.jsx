@@ -238,6 +238,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE_URL from '../config/api';
 
 const Payment = () => {
   const location = useLocation();
@@ -294,7 +295,7 @@ const Payment = () => {
         return;
       }
 
-      const res = await fetch('http://localhost:3000/razorpay/create-order', {
+      const res = await fetch(`${API_BASE_URL}/razorpay/create-order`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ amount: Number(totalPrice) }),
@@ -322,7 +323,7 @@ const Payment = () => {
           alert('Payment Successful! ✅');
           try {
             const updateRes = await axios.put(
-              `http://localhost:3000/bookings/${bookingId}`,
+              `${API_BASE_URL}/bookings/${bookingId}`,
               { isPaid: true }
             );
             navigate('/confirmation', { state: { booking: updateRes.data } });

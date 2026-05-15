@@ -381,6 +381,7 @@ import Title from "../components/Title";
 import { assets } from "../assets/assets";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from "../config/api";
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -396,7 +397,7 @@ const MyBookings = () => {
         return;
       }
 
-      const res = await axios.get(`http://localhost:3000/bookings/user/${userId}`);
+      const res = await axios.get(`${API_BASE_URL}/bookings/user/${userId}`);
       setBookings(res.data);
     } catch (err) {
       console.error("Failed to fetch bookings", err);
@@ -417,7 +418,7 @@ const MyBookings = () => {
     if (!confirmCancel) return;
 
     try {
-      await axios.put(`http://localhost:3000/bookings/${bookingId}`, {
+      await axios.put(`${API_BASE_URL}/bookings/${bookingId}`, {
         status: "Cancelled by User",
       });
 

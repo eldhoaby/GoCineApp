@@ -890,6 +890,7 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import API_BASE_URL from '../../config/api';
 
 const Dashboard = () => {
   const [metrics, setMetrics] = useState({
@@ -907,7 +908,7 @@ const Dashboard = () => {
 
   const fetchMetrics = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/admin/metrics");
+      const res = await axios.get(`${API_BASE_URL}/admin/metrics`);
       const data = res.data;
 
       // Calculate total seats booked
@@ -941,7 +942,7 @@ const Dashboard = () => {
     if (!confirmCancel) return;
 
     try {
-      await axios.put(`http://localhost:3000/bookings/${bookingId}`, {
+      await axios.put(`${API_BASE_URL}/bookings/${bookingId}`, {
         status: "Cancelled by Admin",
       });
       alert("✅ Booking cancelled successfully!");
@@ -959,7 +960,7 @@ const Dashboard = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:3000/bookings/${bookingId}`);
+      await axios.delete(`${API_BASE_URL}/bookings/${bookingId}`);
       alert("🗑️ Booking deleted successfully!");
       fetchMetrics();
     } catch (error) {

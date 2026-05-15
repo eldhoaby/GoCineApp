@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE_URL from '../config/api';
 
 const Login = ({
   onClose = () => {},
@@ -34,7 +35,7 @@ const Login = ({
     if (!validate()) return;
 
     try {
-      const res = await axios.post('http://localhost:3000/users/login', {
+      const res = await axios.post(`${API_BASE_URL}/users/login`, {
         email,
         password,
       });

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../config/api';
 
 const Register = ({ onClose, onSwitch }) => {
   const [form, setForm] = useState({
@@ -71,8 +72,7 @@ const Register = ({ onClose, onSwitch }) => {
     try {
       console.log('Submitting registration form:', form);
 
-      const baseURL = import.meta.env.VITE_BASE_URL || 'http://localhost:3000';
-      const res = await axios.post(`${baseURL}/users/register`, form);
+      const res = await axios.post(`${API_BASE_URL}/users/register`, form);
 
       console.log('Registration response:', res.data);
       alert(res.data?.message || 'Registration successful!');

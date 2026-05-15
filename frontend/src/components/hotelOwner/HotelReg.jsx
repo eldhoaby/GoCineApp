@@ -228,6 +228,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { assets } from '../../assets/assets';
+import API_BASE_URL from '../../config/api';
 
 const HotelReg = () => {
   const navigate = useNavigate();
@@ -309,7 +310,7 @@ const HotelReg = () => {
         shows: showsWithSeats
       };
 
-      await axios.post('http://localhost:3000/rooms', dataToSend);
+      await axios.post(`${API_BASE_URL}/rooms`, dataToSend);
       alert("Movie registered successfully!");
       navigate("/admin/dashboard");
     } catch (err) {

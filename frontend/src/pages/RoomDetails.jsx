@@ -495,6 +495,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { MdLocationOn } from "react-icons/md";
 import { FaCalendarAlt, FaClock, FaChair, FaPlay } from "react-icons/fa";
 import { assets } from "../assets/assets";
+import API_BASE_URL from "../config/api";
 
 const ROWS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 const COLS = 16;
@@ -514,7 +515,7 @@ const RoomDetails = () => {
   useEffect(() => {
     const fetchRoom = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/rooms/${id}`);
+        const res = await fetch(`${API_BASE_URL}/rooms/${id}`);
         if (!res.ok) throw new Error("Movie not found");
         const data = await res.json();
         setRoom(data);
@@ -532,7 +533,7 @@ const RoomDetails = () => {
     }
     try {
       const res = await fetch(
-        `http://localhost:3000/rooms/${id}/shows/${showDate}/${showtime}`
+        `${API_BASE_URL}/rooms/${id}/shows/${showDate}/${showtime}`
       );
       const data = await res.json();
       if (!Array.isArray(data)) {
@@ -596,7 +597,7 @@ const RoomDetails = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:3000/bookings", {
+      const res = await fetch(`${API_BASE_URL}/bookings`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bookingData),

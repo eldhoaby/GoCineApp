@@ -227,6 +227,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { assets } from '../../assets/assets';
+import API_BASE_URL from '../../config/api';
 
 const genreOptions = ['Action', 'Adventure', 'Comedy', 'Crime', 'Drama', 'Family','Fantasy','Horror','Romance','Sci-Fi','Thriller'];
 
@@ -253,7 +254,7 @@ const EditRoom = () => {
   useEffect(() => {
     const fetchRoom = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/rooms/${id}`);
+        const res = await axios.get(`${API_BASE_URL}/rooms/${id}`);
         const room = res.data;
 
         setFormData({
@@ -341,7 +342,7 @@ const EditRoom = () => {
         shows: showsWithSeats
       };
 
-      await axios.put(`http://localhost:3000/rooms/${id}`, dataToSend);
+      await axios.put(`${API_BASE_URL}/rooms/${id}`, dataToSend);
       alert("Movie updated successfully!");
       navigate("/admin/list-rooms");
     } catch (err) {

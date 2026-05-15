@@ -282,6 +282,7 @@ import { FaTicketAlt, FaStar } from 'react-icons/fa';
 import StarRating from '../components/StarRating';
 import Login from '../components/Login';
 import Register from '../components/Register';
+import API_BASE_URL from '../config/api';
 
 const CheckBox = ({ label, selected = false, onChange = () => {} }) => (
   <label className="flex gap-3 items-center cursor-pointer mt-2 text-sm">
@@ -326,7 +327,7 @@ const AllRooms = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await fetch('http://localhost:3000/rooms');
+        const response = await fetch(`${API_BASE_URL}/rooms`);
         const data = await response.json();
 
         const filteredByCity = cityQuery

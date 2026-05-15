@@ -201,6 +201,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
+import API_BASE_URL from "../config/api";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -220,7 +221,7 @@ const Hero = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const res = await fetch("http://localhost:3000/rooms");
+        const res = await fetch(`${API_BASE_URL}/rooms`);
         const data = await res.json();
         setAllRooms(data);
       } catch (err) {

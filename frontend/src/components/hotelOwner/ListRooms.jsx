@@ -99,6 +99,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from '../../config/api';
 
 const ListRooms = () => {
   const [rooms, setRooms] = useState([]);
@@ -111,7 +112,7 @@ const ListRooms = () => {
 
   const fetchRooms = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/rooms");
+      const res = await axios.get(`${API_BASE_URL}/rooms`);
       setRooms(res.data);
     } catch (err) {
       console.error("❌ Failed to fetch movies:", err);
@@ -124,7 +125,7 @@ const ListRooms = () => {
     if (!window.confirm("Are you sure you want to delete this movie?")) return;
 
     try {
-      await axios.delete(`http://localhost:3000/rooms/${roomId}`);
+      await axios.delete(`${API_BASE_URL}/rooms/${roomId}`);
       alert("✅ Movie deleted successfully!");
       fetchRooms();
     } catch (err) {
