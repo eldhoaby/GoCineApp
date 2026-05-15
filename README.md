@@ -67,7 +67,7 @@
 | 🏗️ **Real-World Architecture** | Production-grade MERN stack with clean separation of concerns, RESTful API design, and scalable folder structure |
 | 🔐 **Authentication System** | Complete user registration and login flow with role-based access control (User / Admin) |
 | 🎟️ **Booking Workflow** | End-to-end ticket booking — browse → select → book → pay → receive e-ticket with QR code |
-| 💳 **Payment Integration** | Dual payment gateway support with **Razorpay** and **Stripe** for real transaction processing |
+| 💳 **Payment Integration** | Secure payment processing with **Razorpay** payment gateway for real transaction handling |
 | 👨‍💼 **Admin Dashboard** | Full-featured admin panel for managing movies, showtimes, bookings, and platform analytics |
 | 📱 **Responsive UI** | Mobile-first responsive design built with **Tailwind CSS** and **Material UI** |
 | 🚀 **Production Deployment** | Fully deployed on **Vercel** (frontend) and **Render** (backend) with **MongoDB Atlas** |
@@ -90,8 +90,7 @@
 | Material UI 7.1 | Pre-built UI component library |
 | React Router DOM 7.6 | Client-side routing and navigation |
 | Axios | HTTP client for API communication |
-| Stripe React | Payment gateway integration (frontend) |
-| Razorpay | Payment gateway integration (frontend) |
+| Razorpay | Payment gateway integration |
 | html2pdf.js | PDF generation for e-tickets |
 | qrcode.react | QR code generation for bookings |
 | React Icons | Icon library |
@@ -108,7 +107,6 @@
 | Express 5.1 | Web application framework |
 | MongoDB + Mongoose 8.16 | NoSQL database with ODM |
 | Razorpay SDK | Payment processing (server-side) |
-| Stripe SDK | Payment processing (server-side) |
 | Multer 2.0 | File upload middleware |
 | CORS | Cross-origin resource sharing |
 | dotenv | Environment variable management |
@@ -155,7 +153,7 @@
 │                                                 │                │
 │  ┌──────────────────┐  ┌────────────────────────┘               │
 │  │  Razorpay SDK    │  │                                         │
-│  │  Stripe SDK      │  ▼                                         │
+│  │                  │  ▼                                         │
 │  └──────────────────┘  ┌──────────────────────────┐              │
 │                        │   Mongoose ODM            │              │
 │                        └───────────┬──────────────┘              │
@@ -177,7 +175,7 @@
 - **Movie Details** — View comprehensive movie information including synopsis, cast, and showtimes
 - **Seat Selection** — Interactive seat picker for choosing preferred seats
 - **Secure Booking** — Complete ticket booking with real-time availability updates
-- **Dual Payment** — Pay via **Razorpay** or **Stripe** with secure transaction handling
+- **Secure Payment** — Pay via **Razorpay** with secure transaction handling
 - **E-Ticket with QR** — Receive downloadable PDF tickets with embedded QR codes
 - **Booking History** — View and manage all past and upcoming bookings
 - **User Authentication** — Secure registration and login with session management
@@ -278,7 +276,6 @@ PORT=3000
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/gocine
 RAZORPAY_KEY_ID=your_razorpay_key_id
 RAZORPAY_KEY_SECRET=your_razorpay_key_secret
-STRIPE_SECRET_KEY=your_stripe_secret_key
 ```
 
 ### Frontend (`frontend/.env`)
@@ -304,7 +301,6 @@ The backend exposes a RESTful API with the following endpoint groups:
 | `GET` | `/rooms/:id` | Get movie details by ID | Public |
 | `POST` | `/bookings` | Create a new booking | User |
 | `GET` | `/bookings` | Get user's bookings | User |
-| `POST` | `/payment` | Process Stripe payment | User |
 | `POST` | `/razorpay` | Process Razorpay payment | User |
 | `GET` | `/admin/dashboard` | Admin dashboard data | Admin |
 | `POST` | `/admin/rooms` | Add new movie listing | Admin |
