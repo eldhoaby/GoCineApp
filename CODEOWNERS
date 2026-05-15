@@ -1,0 +1,18 @@
+# CODEOWNERS — Defines code ownership for review assignments
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for all files
+* @eldhoaby
+
+# Frontend
+/frontend/ @eldhoaby
+
+# Backend
+/backend/ @eldhoaby
+
+# Documentation
+/docs/ @eldhoaby
+*.md @eldhoaby
+
+# CI/CD and configuration
+/.github/ @eldhoaby
