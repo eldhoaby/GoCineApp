@@ -39,7 +39,6 @@
 - [Deployment](#-deployment)
 - [Project Structure](#-project-structure)
 - [Future Improvements](#-future-improvements)
-- [Contributing](#-contributing)
 - [License](#-license)
 - [Author](#-author)
 
@@ -200,30 +199,26 @@
 
 ## 📸 Screenshots
 
-<details>
-<summary><strong>Click to expand screenshots</strong></summary>
+### 🏠 Home Page
+_Landing page with cinematic hero section, movie search, and date/ticket selection_
 
-### Home Page
-> _Screenshot: Landing page with hero section and featured movies_
+<p align="center">
+  <img src="screenshots/home-page.png" alt="GoCine Home Page" width="90%" />
+</p>
 
-### Movie Listing
-> _Screenshot: Browse all available movies with filters_
+### 🎬 Movie Listing
+_Browse all now-showing movies with genre filters, ratings, and sorting options_
 
-### Movie Details & Booking
-> _Screenshot: Detailed movie view with showtime selection_
+<p align="center">
+  <img src="screenshots/movie-listing.png" alt="GoCine Movie Listing" width="90%" />
+</p>
 
-### Payment Gateway
-> _Screenshot: Secure payment processing with Razorpay/Stripe_
+### ⭐ Testimonials & Footer
+_User reviews, social links, and professional footer with newsletter subscription_
 
-### E-Ticket
-> _Screenshot: Generated ticket with QR code_
-
-### Admin Dashboard
-> _Screenshot: Admin panel with analytics and management tools_
-
-> **💡 To add screenshots:** Capture your app screens, save them to a `screenshots/` folder, and update the image references above.
-
-</details>
+<p align="center">
+  <img src="screenshots/testimonials-footer.png" alt="GoCine Testimonials" width="90%" />
+</p>
 
 ---
 
@@ -460,28 +455,6 @@ GoCineApp/
 
 ---
 
-## 🤝 Contributing
-
-Contributions are what make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before getting started.
-
-```bash
-# 1. Fork the repository
-# 2. Create your feature branch
-git checkout -b feature/amazing-feature
-
-# 3. Commit your changes
-git commit -m "feat: add amazing feature"
-
-# 4. Push to the branch
-git push origin feature/amazing-feature
-
-# 5. Open a Pull Request
-```
-
----
-
 ## 📄 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
@@ -492,7 +465,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 <div align="center">
 
-**Eldho Baby**
+**Eldho Aby**
 
 [![GitHub](https://img.shields.io/badge/GitHub-eldhoaby-181717?style=for-the-badge&logo=github)](https://github.com/eldhoaby)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/eldhoaby)
